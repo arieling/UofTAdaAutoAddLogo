@@ -1,33 +1,26 @@
-# Color Thief
+# AutoAddLogo
 
-A script for grabbing the color palette from an image. Uses Javascript and the canvas tag to make it happen.
+> AutoAdd UofTADA Logo  
+> arieling.github.io/UofTAdaAutoAddLogo
 
-[See a Demo](http://lokeshdhakar.com/projects/color-thief) | [Read more on my blog](http://lokeshdhakar.com/color-thief)
+## Function:
+
+Add an UofTADA logo to image. Auto detect main colour.
+
+## Demo:
+
+![img](http://g.recordit.co/Tgeu5mH6PI.gif)
+
+## Useage:
+
+colour thief
+
+## Follow us:
+
+Website ：[uoftada](http://uoftada.com/) 微信：[UT助手]()
+
+## License
+
+MIT License
 
 
-## How to use
-
-### Get the dominant color from an image
-```js
-var colorThief = new ColorThief();
-colorThief.getColor(sourceImage);
-```
-
-```js
-getColor(sourceImage[, quality])
-returns [num, num, num]
-```
-
-### Build a color palette from an image
-
-In this example, we build an 8 color palette.
-
-```js
-var colorThief = new ColorThief();
-colorThief.getPalette(sourceImage, 8);
-```
-
-```js
-getPalette(sourceImage[, colorCount, quality])
-returns [ [num, num, num], [num, num, num], ... ]
-```
