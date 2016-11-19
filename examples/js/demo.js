@@ -73,7 +73,7 @@ var data = '<?xml version="1.0" encoding="utf-8"?>' +
 ' 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve"> '+
 ' <style type="text/css">.st0{fill:#28A9E0;}'+'.st1{fill:#'+rgbToHex(col[0], col[1], col[2])+';}</style>'+
 '   <g> ' +
-'<polygon class="st9" points="844.6,794.2 711.9,1024.1 1024.1,1024.1 1024.1,794.2" fill="#e0d5d5"/>'+
+'<polygon class="st9" points="844.6,794.2 711.9,1024.1 1024.1,1024.1 1024.1,794.2" fill="#adadad"/>'+
 '     <polygon class="st1" points="851.8,975.3 933.8,833.3 870.6,833.3 788.6,975.3  "/>' +
 '     <polygon class="st1" points="943.5,838.3 913.8,889.7 963.2,975.3 992.9,923.9   "/>' +
 '     <polygon class="st1" points="933.6,923.9 948.4,949.6 922.7,923.9 894.1,923.9 864.4,975.3 963.2,975.3 992.9,923.9   "/>' +
