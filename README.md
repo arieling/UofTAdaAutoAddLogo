@@ -1,6 +1,6 @@
 # AutoAddLogo
 
-> AutoAdd UofTADA Logo
+> AutoAdd UofTADA Logo  
 > arieling.github.io/UofTAdaAutoAddLogo
 
 ## Function:
