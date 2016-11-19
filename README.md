@@ -13,7 +13,7 @@ Add an UofTADA logo to image. Auto detect main colour.
 
 ## Useage:
 
-#colour thief
+colour thief
 
 ## Follow us:
 
