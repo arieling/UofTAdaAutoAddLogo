@@ -5,11 +5,84 @@
 
 $(document).ready(function () {
 
+  var drawLog = function(logo,back){
+      var ctx = ($('#myCanvas'))[0].getContext("2d");
+      var data = '<?xml version="1.0" encoding="utf-8"?>' +
+      '<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0' +
+      ' 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve"> '+
+      ' <style type="text/css">.st0{fill:#28A9E0;}'+'.st1{fill:'+logo+';}</style>'+
+      '   <g> ' +
+      '<polygon class="st9" points="844.6,794.2 711.9,1024.1 1024.1,1024.1 1024.1,794.2" fill=' + back +'/>'+
+      '     <polygon class="st1" points="851.8,975.3 933.8,833.3 870.6,833.3 788.6,975.3  "/>' +
+      '     <polygon class="st1" points="943.5,838.3 913.8,889.7 963.2,975.3 992.9,923.9   "/>' +
+      '     <polygon class="st1" points="933.6,923.9 948.4,949.6 922.7,923.9 894.1,923.9 864.4,975.3 963.2,975.3 992.9,923.9   "/>' +
+      '   </g>' +
+      '</svg>';
+
+
+      var DOMURL = window.URL || window.webkitURL || window;
+
+      var img2 = new Image();
+      var svg = new Blob([data], {type: 'image/svg+xml'});
+      var url = DOMURL.createObjectURL(svg);
+
+      img2.onload = function () {
+        ctx.drawImage(img2, 0, 0,256,256);
+        DOMURL.revokeObjectURL(url);
+      }
+      img2.src = url;
+  };
+
+  $("#aa").on("change",function() {
+    var period = this.value;
+    if(period === "machineLearned"){
+      drawLog("#"+rgbToHex(col[0], col[1], col[2]),"\"#ffffff\"");
+    }
+    if(period === "Anonymous"){
+      drawLog("#56CBBF","\"#C2EDFB\"");
+    }
+    if(period === "blue"){
+      drawLog("#81D2F4","\"#1D2A48\"");
+    }
+    if(period === "cyanStone"){
+      drawLog("#B0BEC5","\"#263238\"");
+    }
+    if(period === "greyWhite"){
+      drawLog("#c1bbb2","\"#ffffff\"");
+    }
+    if(period === "coffee"){
+      drawLog("#cfb797","\"#755849\"");
+    }
+    if(period === "hehe"){
+      drawLog("#626264","\"#1D2A48\"");
+    }
+    if(period === "izumi"){
+      drawLog("#ffbdcb","\"#e3d5f6\"");
+    }
+    if(period === "joy"){
+      drawLog("#ec556a","\"#000000\"");
+    }
+    if(period === "lightpurple"){
+      drawLog("#D1ADDA","\"#F3CFE9\"");
+    }
+    if(period === "sakura"){
+      drawLog("#FFEBEE","\"#EF9A9A\"");
+    }
+    if(period === "tea"){
+      drawLog("#eff0df","\"#a6ab5f\"");
+    }
+    if(period === "winnie"){
+      drawLog("#fae769","\"#6d4016\"");
+    }
+  }); 
+  
+
   var imageArray = {images: [
       {'file': 'examples/img/photo1.jpg'},
       {'file': 'examples/img/photo2.jpg'},
       {'file': 'examples/img/photo3.jpg'}
   ]};
+
 
   // Render example images
   var examplesHTML = Mustache.to_html($('#image-section-template').html(), imageArray);
@@ -64,35 +137,64 @@ $(document).ready(function () {
   var loadCanvas = function($image, col){
     console.log(rgbToHex(col[0], col[1], col[2]))
     var ctx = ($('#myCanvas'))[0].getContext("2d");
-  
-    ctx.drawImage($image[0],0,0, 521,512);
+    ctx.drawImage($image[0], 0, 0, $image[0].width,    $image[0].height, 
+                   0, 0, 256, 256);
+    // var canvas = ctx.canvas ;
+    // var hRatio = canvas.width  / $image[0].width    ;
+    // var vRatio =  canvas.height / $image[0].height  ;
+    // var ratio  = Math.min ( hRatio, vRatio );
+    // var centerShift_x = ( canvas.width - $image[0].width*ratio ) / 2;
+    // var centerShift_y = ( canvas.height - $image[0].height*ratio ) / 2;
+    // ctx.drawImage($image[0],
+    //                  0,0, $image[0].width, $image[0].height,
+    //                   centerShift_x,centerShift_y,$image[0].width*ratio, $image[0].height*ratio);
+
+    // ctx.drawImage($image[0],
+    //                 0,0,
+    //                 512,512,
+    //                 0,0, 
+    //                 521,512);
+    // if($image[0].width === $image[0].height){
+    //   ctx.drawImage($image[0],
+    //                 0,0, 
+    //                 521,512);
+
+    // }
+    // if($image[0].width > $image[0].height){
+    //   ctx.drawImage($image[0],
+    //                 0,0,
+    //                 512,512,
+    //                 0,0, 
+    //                 521,512);
+    // }
+    
 
 
-var data = '<?xml version="1.0" encoding="utf-8"?>' +
-'<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0' +
-' 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve"> '+
-' <style type="text/css">.st0{fill:#28A9E0;}'+'.st1{fill:#'+rgbToHex(col[0], col[1], col[2])+';}</style>'+
-'   <g> ' +
-'<polygon class="st9" points="844.6,794.2 711.9,1024.1 1024.1,1024.1 1024.1,794.2" fill="#adadad"/>'+
-'     <polygon class="st1" points="851.8,975.3 933.8,833.3 870.6,833.3 788.6,975.3  "/>' +
-'     <polygon class="st1" points="943.5,838.3 913.8,889.7 963.2,975.3 992.9,923.9   "/>' +
-'     <polygon class="st1" points="933.6,923.9 948.4,949.6 922.7,923.9 894.1,923.9 864.4,975.3 963.2,975.3 992.9,923.9   "/>' +
-'   </g>' +
-'</svg>';
+    // var data = '<?xml version="1.0" encoding="utf-8"?>' +
+    // '<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0' +
+    // ' 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve"> '+
+    // ' <style type="text/css">.st0{fill:#28A9E0;}'+'.st1{fill:#'+rgbToHex(col[0], col[1], col[2])+';}</style>'+
+    // '   <g> ' +
+    // '<polygon class="st9" points="844.6,794.2 711.9,1024.1 1024.1,1024.1 1024.1,794.2" fill="#ffffff"/>'+
+    // '     <polygon class="st1" points="851.8,975.3 933.8,833.3 870.6,833.3 788.6,975.3  "/>' +
+    // '     <polygon class="st1" points="943.5,838.3 913.8,889.7 963.2,975.3 992.9,923.9   "/>' +
+    // '     <polygon class="st1" points="933.6,923.9 948.4,949.6 922.7,923.9 894.1,923.9 864.4,975.3 963.2,975.3 992.9,923.9   "/>' +
+    // '   </g>' +
+    // '</svg>';
 
 
-var DOMURL = window.URL || window.webkitURL || window;
+    // var DOMURL = window.URL || window.webkitURL || window;
 
-var img2 = new Image();
-var svg = new Blob([data], {type: 'image/svg+xml'});
-var url = DOMURL.createObjectURL(svg);
+    // var img2 = new Image();
+    // var svg = new Blob([data], {type: 'image/svg+xml'});
+    // var url = DOMURL.createObjectURL(svg);
 
-img2.onload = function () {
-  ctx.drawImage(img2, 0, 0,512,512);
-  DOMURL.revokeObjectURL(url);
-}
+    // img2.onload = function () {
+    //   ctx.drawImage(img2, 0, 0,256,256);
+    //   DOMURL.revokeObjectURL(url);
+    // }
 
-img2.src = url;
+    // img2.src = url;
 
 
   }
