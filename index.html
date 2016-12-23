@@ -25,11 +25,11 @@
       <div id="dragged-images" class="dragged-images"></div>
       <h2>Result</h2>
       <canvas id="myCanvas" width="256" height="256"  style="border:1px solid #000000; display:inline-block;"></canvas><br>
-      <h2>Customize your logo</h2>
+      <h2>ADD logo</h2>
   
       <select id="aa" name="aa" class="button">
         <option value ="">Please Select One</option>
-        <option value ="machineLearned">Machine learnt best colour</option>
+        <option value ="machineLearned">Machine learned best colour</option>
         <option value ="blue">Blue</option>
         <option value ="coffee">Coffee</option>
         <option value ="cyanStone">cyanStone</option>
@@ -80,16 +80,12 @@
       <div class="swatches">
         <div class="swatch" style="background-color: rgb({{color.0}}, {{color.1}}, {{color.2}})"></div>
       </div>
-      <div class="function-code">
-        <code>colorThief.getColor(image):{{elapsedTimeForGetColor}}ms</code>
-      </div>
+
           <!-- set canvas -->
 
     <!-- set canvas -->
     </div>
   </script>
-
-
   <script src="src/color-thief.js"></script>
   <script src="examples/js/jquery.js"></script>
   <script src="examples/js/mustache.js"></script>
